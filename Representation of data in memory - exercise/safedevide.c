@@ -4,20 +4,18 @@
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
+        ERROR_MSG;
         return 1;
     }
 
-    struct SafeResult result;
-    struct SafeResult num1 = safestrtoint(argv[1]);
-    struct SafeResult num2 = safestrtoint(argv[2]);
-
-    if (num1.errorflag || num2.errorflag) {
-        return 1;
-    }
-
-    result = safedivide(num1.value, num2.value);
+    struct SafeResult result = safedivide(atoi(argv[1]), atoi(argv[2]));
 
     if (result.errorflag) {
+        if (atoi(argv[2]) == 0) {
+            ERROR_MSG;
+        } else {
+            ERROR_OVERFLOW();
+        }
         return 1;
     }
 
