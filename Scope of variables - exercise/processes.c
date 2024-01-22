@@ -17,7 +17,7 @@ int createnewprocess(const char *processname) {
         int id = nextprocessid();
         if (id != 0) {
             processes[processescount].id = id;
-            for (int i = 0; i < 30 && processname[i] != '\0'; ++i) {
+            for (int i = 0; i < 30 && processname[i] != '\0'; i++) {
                 processes[processescount].name[i] = processname[i];
             }
             processescount++;
@@ -28,9 +28,9 @@ int createnewprocess(const char *processname) {
 }
 
 void stopprocess(int processid) {
-    for (int i = 0; i < processescount; ++i) {
+    for (int i = 0; i < processescount; i++) {
         if (processes[i].id == processid) {
-            for (int j = i; j < processescount - 1; ++j) {
+            for (int j = i; j < processescount - 1; j++) {
                 processes[j] = processes[j + 1];
             }
             processescount--;

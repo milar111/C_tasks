@@ -1,13 +1,10 @@
-all: quadraticroots
+all: main.out
 
-quadraticroots: main.o quadraticroots.o
-	gcc -o quadraticroots main.o quadraticroots.o -lm
+quadraticroots.o: quadraticroots.h quadraticroots.c main.c
+	gcc -c quadraticroots.c -o quadraticroots.o 
 
-main.o: main.c quadraticroots.h
-	gcc -c main.c
-
-quadraticroots.o: quadraticroots.c quadraticroots.h
-	gcc -c quadraticroots.c
+main.out: main.c quadraticroots.h quadraticroots.o
+	gcc main.c quadraticroots.o -o main.out
 
 clean:
-	rm -f *.o 
+	rm -f *.o *.out

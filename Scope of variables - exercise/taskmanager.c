@@ -6,7 +6,7 @@ int main() {
     char processname[30];
 
     while (1) {
-        printf("1. Create new process\n2. List all processes\n3. Stop process\n4. Exit\nEnter your choice: ");
+        printf("1. Create new process\n2. List all processes\n3. Stop process\n4. Exit\n1/2/3/4: ");
         scanf("%d", &choice);
 
         if (choice == 1) {
@@ -16,7 +16,7 @@ int main() {
             if (id != 0) {
                 printf("Created process with ID %d\n", id);
             } else {
-                printf("Error: Maximum number of processes reached.\n");
+                printf("Error\n");
             }
         } else if (choice == 2) {
             printf("Processes:\n");
@@ -28,7 +28,6 @@ int main() {
             scanf("%d", &processid);
             stopprocess(processid);
         } else{
-            printf("Exiting taskmanager.\n");
             return 0;
         }
     }

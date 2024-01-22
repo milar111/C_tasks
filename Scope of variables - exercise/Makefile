@@ -1,13 +1,10 @@
-all: quadraticroots
+all: taskmanager.out
 
-quadraticroots: main.o quadraticroots.o
-	gcc -o quadraticroots main.o quadraticroots.o -lm
+processes.o: processes.h processes.c taskmanager.c
+	gcc -c processes.c -o processes.o 
 
-main.o: main.c quadraticroots.h
-	gcc -c main.c
-
-quadraticroots.o: quadraticroots.c quadraticroots.h
-	gcc -c quadraticroots.c
+taskmanager.out: taskmanager.c processes.h processes.o
+	gcc taskmanager.c processes.o -o taskmanager.out
 
 clean:
-	rm -f *.o
+	rm -f *.o taskmanager.out
