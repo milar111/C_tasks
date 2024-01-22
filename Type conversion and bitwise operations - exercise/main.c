@@ -1,4 +1,3 @@
-// main.c
 #include "quadraticroots.h"
 #include <stdio.h>
 
