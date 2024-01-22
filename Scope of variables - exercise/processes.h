@@ -1,19 +1,16 @@
 #ifndef PROCESSES_H
 #define PROCESSES_H
 
-#define MAX_PROCESSES 5
-#define MAX_NAME_LENGTH 30
-
-typedef struct {
+struct Process {
     int id;
-    char name[MAX_NAME_LENGTH];
-} Process;
+    char name[30];
+};
 
-extern Process processes[MAX_PROCESSES];
-extern int processesCount;
+extern struct Process processes[5];
+extern int processescount;
 
-int nextProcessId();
-int createNewProcess(const char *processName);
-void stopProcess(int processId);
+int nextprocessid();
+int createnewprocess(const char *processname);
+void stopprocess(int processid);
 
 #endif

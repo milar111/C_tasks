@@ -1,34 +1,39 @@
 #include "processes.h"
 #include <stdio.h>
 
-int nextProcessId() {
-    static int currentId = 1; 
-    if (currentId <= MAX_PROCESSES) {
-        return currentId++;
+struct Process processes[5];
+int processescount = 0;
+
+int nextprocessid() {
+    static int currentid = 1; 
+    if (currentid <= 5) {
+        return currentid++;
     }
     return 0;
 }
 
-int createNewProcess(const char *processName) {
-    if (processesCount < MAX_PROCESSES) {
-        int id = nextProcessId();
+int createnewprocess(const char *processname) {
+    if (processescount < 5) {
+        int id = nextprocessid();
         if (id != 0) {
-            processes[processesCount].id = id;
-            snprintf(processes[processesCount].name, MAX_NAME_LENGTH, "%s", processName);
-            processesCount++;
+            processes[processescount].id = id;
+            for (int i = 0; i < 30 && processname[i] != '\0'; ++i) {
+                processes[processescount].name[i] = processname[i];
+            }
+            processescount++;
         }
         return id;
     }
-    return 0; // Unable to create a new process
+    return 0;
 }
 
-void stopProcess(int processId) {
-    for (int i = 0; i < processesCount; ++i) {
-        if (processes[i].id == processId) {
-            for (int j = i; j < processesCount - 1; ++j) {
+void stopprocess(int processid) {
+    for (int i = 0; i < processescount; ++i) {
+        if (processes[i].id == processid) {
+            for (int j = i; j < processescount - 1; ++j) {
                 processes[j] = processes[j + 1];
             }
-            processesCount--;
+            processescount--;
             break;
         }
     }
