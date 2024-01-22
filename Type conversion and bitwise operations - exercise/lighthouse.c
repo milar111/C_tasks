@@ -30,16 +30,18 @@ int main(void) {
     int room;
 
     while (1) {
-        printf("1. Switch lights\n2. Print room number\n1/2: ");
+        printf("1. Switch lights\n 2. Print room number\n 3.Exit \n1/2/3: ");
         scanf("%d", &choice);
 
         if (choice == 1) {
             printf("Room: ");
             scanf("%d", &room);
             switch_lights(room);    
-        } else {
+        } else if(choice == 2){
             print_room();
-    }
+        }else{
+            break;
+        }
 
     }
 }
