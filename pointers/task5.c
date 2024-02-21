@@ -17,24 +17,39 @@ void bubblesort(void *array, int count, int (*compare)(const void *, const void 
 }
 
 int ascending_compare(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b);
+    int num1 = *(int*)a; 
+    int num2 = *(int*)b;  
+    if (num1 < num2)     
+        return -1;   
+    if (num1 > num2)     
+        return 1;    
+    return 0;        
 }
 
 int descending_compare(const void *a, const void *b) {
-    return (*(int*)b - *(int*)a);
+    int num1 = *(int*)a; 
+    int num2 = *(int*)b; 
+    if (num1 > num2)    
+        return -1;        
+    if (num1 < num2)    
+        return 1;       
+    return 0;             
 }
+
 
 
 int main() {
     int arr[] = {5, 2, 8, 1, 9};
     int n = sizeof(arr) / sizeof(arr[0]);
-    printf("Sorted array in ascending order: ");
+    
+    printf("Ascending order: ");
     bubblesort(arr, n, ascending_compare, swap_elements);
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
     printf("\n");
-    printf("Sorted array in descending order: ");
+    
+    printf("Descending order: ");
     bubblesort(arr, n, descending_compare, swap_elements);
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
