@@ -1,11 +1,11 @@
 // Направете функция, която да приема двумерен целочислен масив, който може да има произволен брой редове но да има четири колони и да го принтира като таблица, използвайки адресна аритметика. Функцията трябва да приема също така и броят на редовете (броят на колоните не е нужен, защото той винаги е четири). Хубаво е да дефинирате макрота за размерите, които да преизползвате.
 #include <stdio.h>
 
-#define COLS 3
+#define COLUMS 3
 
-void print_table(int arr[][COLS], int rows) {
+void print_table(int arr[][COLUMS], int rows) {
     for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < COLS; j++) {
+        for (int j = 0; j < COLUMS; j++) {
             printf("%d ", arr[i][j]);
         }
         printf("\n");
@@ -17,7 +17,7 @@ int main() {
     int rows = 3;
 //  int rows = sizeof(arr) / sizeof(arr[0]);
 
-    int arr[][COLS] = {
+    int arr[][COLUMS] = {
         {1, 2, 3},
         {4, 5, 6},
         {7, 8, 9}
