@@ -5,13 +5,13 @@ int main() {
     int count = 0;
     float *avg = (float *)malloc(sizeof(float));
     *avg = 0;
-    printf("Please enter the number of grades:");
+    printf("Number of grades:");
     scanf("%d", &count);
     if (count < 1) exit(1);
     float *grades = (float *)calloc(count, sizeof(float));
 
     if (grades == NULL) {
-        printf("Error allocating memory\n");
+        printf("Error\n");
         return 1;
     }
 
@@ -36,7 +36,7 @@ int main() {
                     sum += grades[i];
                 }
                 *avg = sum / count;
-                printf("Average grade: %f\n", *avg);
+                printf("AVG: %f\n", *avg);
                 break;
             }
             case 2: {
@@ -63,7 +63,7 @@ int main() {
                         return 1;
                     }
                 } else {
-                    printf("No grades to delete\n");
+                    printf("No grades\n");
                 }
                 break;
             }
