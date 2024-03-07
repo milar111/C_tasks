@@ -5,10 +5,14 @@ int main() {
     int count = 0;
     float *avg = (float *)malloc(sizeof(float));
     *avg = 0;
+    float *grades = (float *)calloc(count, sizeof(float));
+
     printf("Number of grades:");
     scanf("%d", &count);
-    if (count < 1) exit(1);
-    float *grades = (float *)calloc(count, sizeof(float));
+
+    if (count < 1) {
+    exit(1);
+    }
 
     if (grades == NULL) {
         printf("Error\n");
@@ -25,7 +29,6 @@ int main() {
         printf("2.Add grade\n");
         printf("3.Remove grade\n");
         printf("4.Exit\n");
-
         int choice;
         scanf("%d", &choice);
 
