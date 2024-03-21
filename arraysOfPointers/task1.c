@@ -29,10 +29,12 @@ int main() {
     }
 
     printf("Enter the names of the subjects:\n");
-    for (int i = 0; i < num_subjects; i++) {
-        fgets(subjects[i], MAX_NAME_LENGTH + 1, stdin);
-        remove_newline(subjects[i]);
-    }
+for (int i = 0; i < num_subjects; i++) {
+    printf("Subject %d: ", i + 1);
+    scanf("%s", subjects[i]);
+    remove_newline(subjects[i]);
+}
+
 
     char **students = NULL;
     int **grades = NULL;
@@ -48,7 +50,7 @@ int main() {
             students = realloc(students, (num_students + 1) * sizeof(char*));
             students[num_students] = malloc((MAX_NAME_LENGTH + 1) * sizeof(char));
             printf("Enter student's name: ");
-            fgets(students[num_students], MAX_NAME_LENGTH + 1, stdin);
+            scanf("%s", students[num_students]); // Въвеждаме името на студента с scanf
             remove_newline(students[num_students]);
 
             grades = realloc(grades, (num_students + 1) * sizeof(int*));
@@ -64,7 +66,8 @@ int main() {
             total_grades[num_students] = sum_grades;
 
             num_students++;
-        } else if (choice == 2) {
+        
+        }else if (choice == 2) {
             printf("%-15s", "");
             for (int i = 0; i < num_subjects; i++) {
                 printf("%-15s", subjects[i]);
