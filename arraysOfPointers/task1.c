@@ -50,7 +50,7 @@ for (int i = 0; i < num_subjects; i++) {
             students = realloc(students, (num_students + 1) * sizeof(char*));
             students[num_students] = malloc((MAX_NAME_LENGTH + 1) * sizeof(char));
             printf("Enter student's name: ");
-            scanf("%s", students[num_students]); // Въвеждаме името на студента с scanf
+            scanf("%s", students[num_students]);
             remove_newline(students[num_students]);
 
             grades = realloc(grades, (num_students + 1) * sizeof(int*));
