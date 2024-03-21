@@ -1,16 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #define MAX_SUBJECTS 10
 #define MAX_NAME_LENGTH 15
 
-void remove_newline(char *str) {
-    char *newline = strchr(str, '\n');
-    if (newline != NULL) {
-    *newline = '\0';
-}
-}
+
 
 int main() {
     int num_subjects, num_students = 0;
@@ -32,7 +26,6 @@ int main() {
 for (int i = 0; i < num_subjects; i++) {
     printf("Subject %d: ", i + 1);
     scanf("%s", subjects[i]);
-    remove_newline(subjects[i]);
 }
 
 
@@ -51,7 +44,6 @@ for (int i = 0; i < num_subjects; i++) {
             students[num_students] = malloc((MAX_NAME_LENGTH + 1) * sizeof(char));
             printf("Enter student's name: ");
             scanf("%s", students[num_students]);
-            remove_newline(students[num_students]);
 
             grades = realloc(grades, (num_students + 1) * sizeof(int*));
             grades[num_students] = malloc(num_subjects * sizeof(int));
