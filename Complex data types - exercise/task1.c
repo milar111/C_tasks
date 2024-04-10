@@ -1,16 +1,26 @@
-// Направете функция, която се казва “reduce” и която приема четири аргумента: масив от тип unsigned long long, размер на масива от тип unsigned long long, указател към функция, която приема два аргумента от тип unsigned long long и връща unsigned long long като резултат, и аргумент - начална стойност пак от тип unsigned long long. Функцията трябва да връща стойност от тип unsigned long long. Функцията reduce трябва да редуцира масива от стойности до само една стойност като последователно прилага подадената функция, на съседни елементи на масива, започвайки от началната стойност (подадена като аргумент). Така например тя трябва да създаде променлива “result”, която в началото да е равна на началната стойност. След това result трябва да приема резултата от извикването на подадената функция с аргументи: 1 - result и 2 - първата стойност на масива. След това result трябва да приема резултата от извикването на подадената функция с аргументи: 1 - result и 2 - втората стойност на масива и така за всички елементи на масива. Направете функция add която да приема два аргумента от тип unsigned long long и да връща техния сбор.Използвайте typedef за да опростите изписването на типа unsigned long long и указателя към функцията. Извикайте функцията reduce, като подадете произволен масив, неговия размер, функцията add и произволна начална стойност. Пример за действието на функцията result за масив arr = {1, 2, 3}: reduce(arr, 3, add, 0) => result = 0; result = add (result, 1) => result == 0 + 1 == 1; result = add(result, 2) => result == 1 + 2 == 3; result = add(result, 3) => result == 3 + 3 == 6; => reduce(arr, 3, add, 0) == 6
-
 #include <stdio.h>
 
-typedef unsigned long long  ull;
+typedef unsigned long long ULL;
 
-int reduce(ull arr[])
-{
-
+ULL add(ULL a, ULL b) {
+    return a + b;
 }
 
+typedef ULL (*func_ptr)(ULL, ULL);
 
-int main(void)
-{
+ULL reduce(ULL* array, ULL size, func_ptr f, ULL initial_value) {
+    ULL result = initial_value;
+    for (ULL i = 0; i < size; ++i) {
+        result = f(result, array[i]);
+    }
+    return result;
+}
 
+int main() {
+    ULL arr[] = {1, 2, 3};
+    ULL initial_value = 0;
+    ULL final_result = reduce(arr, 3, add, initial_value);
+    printf("%llu\n", final_result);
+
+    return 0;
 }
