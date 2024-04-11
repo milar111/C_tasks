@@ -10,7 +10,7 @@ typedef ull (*func_ptr)(ull, ull);
 
 ull reduce(ull* array, ull size, func_ptr f, ull value) {
     ull result = value;
-    for (ull i = 0; i < size; ++i) {
+    for (int i = 0; i < size; i++) {
         result = f(result, array[i]);
     }
     return result;

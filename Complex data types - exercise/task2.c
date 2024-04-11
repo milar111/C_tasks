@@ -1,7 +1,3 @@
-// Направете програма, която да приема от конзолата номер на ден от седмицата (започвайки от 1 до 7) и да принтира на екрана името на този ден. За целта използвайте изброен тип за дните от седмицата.
-
-
-
 #include <stdio.h>
 
 enum Weekday {
@@ -30,9 +26,8 @@ int main(void) {
   int dayInput = 0;
   printf("Please enter a weekday:");
   scanf("%d", &dayInput);
-  enum Weekday currentDay = dayInput;
 
-  switch(currentDay) {
+  switch(dayInput) {
     case MONDAY:
         printf("Monday");
         break;
