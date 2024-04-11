@@ -1,25 +1,25 @@
 #include <stdio.h>
 
-typedef unsigned long long ULL;
+typedef unsigned long long ull;
 
-ULL add(ULL a, ULL b) {
+ull add(ull a, ull b) {
     return a + b;
 }
 
-typedef ULL (*func_ptr)(ULL, ULL);
+typedef ull (*func_ptr)(ull, ull);
 
-ULL reduce(ULL* array, ULL size, func_ptr f, ULL initial_value) {
-    ULL result = initial_value;
-    for (ULL i = 0; i < size; ++i) {
+ull reduce(ull* array, ull size, func_ptr f, ull initial_value) {
+    ull result = initial_value;
+    for (ull i = 0; i < size; ++i) {
         result = f(result, array[i]);
     }
     return result;
 }
 
 int main() {
-    ULL arr[] = {1, 2, 3};
-    ULL initial_value = 0;
-    ULL final_result = reduce(arr, 3, add, initial_value);
+    ull arr[] = {1, 2, 3};
+    ull initial_value = 0;
+    ull final_result = reduce(arr, 3, add, initial_value);
     printf("%llu\n", final_result);
 
     return 0;
