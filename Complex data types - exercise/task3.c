@@ -26,7 +26,7 @@ int addStudent(Student *students, int count)
     scanf("%lf" ,&students[count].avgGrade);
 }
 
-void printDiary(const Student *students, const int count){
+void printDiary(Student *students,int count){
     if(count == 0){
         printf("\nNo students");
     }else{
@@ -38,7 +38,6 @@ void printDiary(const Student *students, const int count){
 }
 
 int main(void){
-    int choice;
     int count = 0;
     Student *student = NULL;
     while (1)
