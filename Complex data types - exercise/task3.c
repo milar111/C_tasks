@@ -44,7 +44,7 @@ int main(void){
     {
         printLegend();
         int command;
-        printf("\nEnter the number of a command:");
+        printf("\nEnter a number:");
         scanf("%d", &command);
 
         switch(command){
