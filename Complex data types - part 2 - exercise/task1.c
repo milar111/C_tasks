@@ -1,82 +1,82 @@
-#include<stdio.h>
-
+#include <stdio.h>
 #define MAX 30
-
-typedef unsigned long long ull;
-
-typedef struct DateTime {
-    int date;
+#define MAXCH 100
+struct {
+    int day;
     int month;
     int year;
     struct {
         int hour;
-        int minute; 
-    } time1;
-} DateTime;
+        int minute;
+    } time;
+} typedef Date;
 
-typedef struct StudentData {
-    char f_name[MAX + 1];
-    char l_name[MAX + 1];
-    char email[MAX + (2 * MAX)];
-    char phone_number[20];
-} StudentData;
+typedef struct {
+    char first_name[MAX];
+    char middle_name[MAX];
+    char last_name[MAX];
+    char email[MAX + MAX];
+    char phone_number[MAX / 2];
+} Participant;
 
-typedef struct{
-    
-}Choice;
+typedef struct {
+    Participant participant;
+    int will_participate; 
+} ParticipantResponse;
 
-typedef struct Task {
-    char title[MAX];
-    char description[10 * MAX];
-    DateTime event_date; 
-    StudentData participants[100];
-    int num_participants;
-} Task;
+typedef struct {
+    char title[MAXCH];
+    char description[MAXCH * 5];
+    Date date;
+    ParticipantResponse participants[MAXCH];
+    int participant_count;
+} Cause;
 
-int printParticipant(StudentData participant) {
-    printf("FirstName: %s\nLastName: %s\nEmail: %s\nPhoneNumber: %s\n", participant.f_name, participant.l_name, participant.email, participant.phone_number); // Changed '%llu' to '%s' to print phone number as string
-    return 0;
+void printDate(Date date) {
+    printf("%02d.%02d.%04d %02d:%02d", date.day, date.month, date.year, date.time.hour, date.time.minute);
 }
 
-void printCause(Task cause) {
-    printf("Title: %s\n", cause.title);
-    printf("Description: %s\n", cause.description);
-    printf("Year: %d\n", cause.event_date.year); 
-    printf("Month: %d\n", cause.event_date.month); 
-    printf("Date: %d\n", cause.event_date.date);
-    printf("Time: %d : %d\n", cause.event_date.time1.hour, cause.event_date.time1.minute); 
-    for(int i = 0; i < cause.num_participants; i++) {
-        printParticipant(cause.participants[i]);
+void printParticipant(Participant participant) {
+    printf("Name: %s %s %s\nEmail: %s\nPhone: %s\n", participant.first_name, participant.middle_name, participant.last_name, participant.email, participant.phone_number);
+}
+
+void printCause(Cause cause) {
+    printf("Title: %s\nDescription: %s\nDate: ", cause.title, cause.description);
+    printDate(cause.date);
+    printf("\nParticipants:\n");
+    for (int i = 0; i < cause.participant_count; ++i) {
+        printf("Participant %d:\n", i+1);
+        printParticipant(cause.participants[i].participant);
+        printf("Will participate: %s\n", cause.participants[i].will_participate ? "Yes" : "No");
     }
 }
 
-int main(void){
-    Task cause1 = {
-        .title = "Cleaning the local park",
-        .description = "Join us in cleaning up the park and making it a better place for everyone!",
-        .event_date = { .date = 15, .month = 4, .year = 2024, .time1 = { .hour = 10, .minute = 0 }},
+int main() {
+    Cause cause1 = {
+        .title = "Clean-up Campaign",
+        .description = "A campaign to clean up the local park.",
+        .date = { .day = 25, .month = 4, .year = 2024, .time = { .hour = 10, .minute = 0 } },
+        .participant_count = 2,
         .participants = {
-            {.f_name = "John", .l_name = "Doe", .email = "john@example.com", .phone_number = "123456789"},
-            {.f_name = "Jane", .l_name = "Smith", .email = "jane@example.com", .phone_number = "987654321"}, 
-        },
-        .num_participants = 2
+            { .participant = { .first_name = "John", .last_name = "Doe", .email = "john@example.com", .phone_number = "45985049" }, .will_participate = 1 },
+            { .participant = { .first_name = "Jane", .last_name = "Smith", .email = "jane@example.com", .phone_number = "493439840" }, .will_participate = 0 }
+        }
     };
 
-    Task cause2 = {
-        .title = "Fundraising for homeless shelter",
-        .description = "Help us raise funds for the local homeless shelter to provide food and shelter for those in need.",
-        .event_date = { .date = 20, .month = 4, .year = 2024, .time1 = { .hour = 14, .minute = 30 }},
+    Cause cause2 = {
+        .title = "Blood Donation Drive",
+        .description = "A blood donation drive at the local hospital.",
+        .date = { .day = 30, .month = 4, .year = 2024, .time = { .hour = 9, .minute = 0 } },
+        .participant_count = 1,
         .participants = {
-            {.f_name = "Alice", .l_name = "Johnson", .email = "alice@example.com", .phone_number = "555123456"}, 
-            {.f_name = "Bob", .l_name = "Williams", .email = "bob@example.com", .phone_number = "555987654"},
-        },
-        .num_participants = 2 
+            { .participant = { .first_name = "Alice", .last_name = "Johnson", .email = "alice@example.com", .phone_number = "95834050" }, .will_participate = 1 }
+        }
     };
 
     printf("Cause 1:\n");
     printCause(cause1);
-    printf("\n");
-    printf("Cause 2:\n");
+    printf("\nCause 2:\n");
     printCause(cause2);
 
+    return 0;
 }
