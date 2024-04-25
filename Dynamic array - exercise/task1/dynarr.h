@@ -1,7 +1,7 @@
 #ifndef DYN_ARR_H
 #define DYN_ARR_H
 
-typedef double DynArrType;
+typedef float DynArrType;
 typedef unsigned int uint;
 
 typedef struct {
@@ -22,6 +22,8 @@ void setElement(DynamicArray * arr, uint index, DynArrType value);
 DynArrType removeElement(DynamicArray * arr, uint index);
 DynArrType popFront(DynamicArray * arr);
 DynArrType popBack(DynamicArray * arr);
+
+int findIndex(DynamicArray *arr, DynArrType value);
 
 void release(DynamicArray *arr);
 
