@@ -13,7 +13,7 @@ typedef enum {
 typedef struct Task {
     char name[100];
     Condition Condition;
-    int prioritet;
+    int priority;
     struct Task* sledvasht;
 } Task;
 
@@ -21,14 +21,14 @@ typedef struct {
     Task* head;
 } taskList;
 
-Task* newTask(const char* name, int prioritet);
+Task* newTask(const char* name, int priority);
 
-void addTask(taskList* spisuk, const char* name, int prioritet);
+void addTask(taskList* list, const char* name, int priority);
 
-void changeCondition(taskList* spisuk, int prioritet, Condition Condition);
+void changeCondition(taskList* list, int priority, Condition condition);
 
-void deleteTask(taskList* spisuk, int prioritet);
+void deleteTask(taskList* list, int priority);
 
-void printList(taskList* spisuk);
+void printList(taskList* list);
 
 #endif 
