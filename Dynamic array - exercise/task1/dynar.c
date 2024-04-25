@@ -99,6 +99,15 @@ DynArrType popBack(DynamicArray * arr) {
   return removeElement(arr, arr->size-1);
 }
 
+int findIndex(DynamicArray *arr, DynArrType value) {
+    for (uint i = 0; i < arr->size; i++) {
+        if (arr->buffer[i] == value) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 void release(DynamicArray * arr) {
   free(arr->buffer);
   arr->buffer = NULL;
