@@ -62,7 +62,14 @@ void addTask(taskList* list, const char* name, int priority){
 }
 
 void changeCondition(taskList* list, int priority, Condition condition){
-
+    Task *current = list->head;
+    while(current != NULL){
+        if(current -> priority == priority){
+            current->condition = condition;
+        }
+    current = current -> next;
+    }
+    printf('errorS');
 }
 
 void deleteTask(taskList* list, int priority){
