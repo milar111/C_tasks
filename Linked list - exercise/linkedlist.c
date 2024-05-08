@@ -32,7 +32,7 @@ Task* newTask(char * name, int priority){
 }
 
 void addTask(taskList* list, const char* name, int priority){
-    Task* newTask = newTask(name, priority);
+    Task* new_task = newTask(name, priority);
     if(list->head == NULL){
         list->head = newTask;
     } else{
@@ -44,11 +44,11 @@ void addTask(taskList* list, const char* name, int priority){
             current = current->next;
         }
         if(previous==NULL) {
-            newTask -> next = list -> head;
+            new_task -> next = list -> head;
             list -> head = newTask; 
         }else{
             previous -> next = newTask;
-            newTask -> next = current;
+            new_task -> next = current;
         }
     }
     Task* current = list -> head;
