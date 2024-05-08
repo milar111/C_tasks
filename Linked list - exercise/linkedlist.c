@@ -69,12 +69,29 @@ void changeCondition(taskList* list, int priority, Condition condition){
         }
     current = current -> next;
     }
-    printf('errorS');
+    printf("error\n");
 }
 
 void deleteTask(taskList* list, int priority){
+    Task* current = list -> head;
+    Task* previous = NULL;
+    while (current != NULL)     
+    {
+        if(current -> priority == priority){
+            if(previous == NULL) {
+                list -> head = current -> next;
+            } else {
+                previous -> next = current -> next;
+            }
+            free(current);
+        }
+        previous = current;
+        current = current -> next;
+        }
+    printf("error\n");
 
-}
+    }
+
 
 void printList(taskList* list){
 
