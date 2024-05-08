@@ -24,6 +24,7 @@ typedef struct{
 
 Task* newTask(char * name, int priority){
     Task* task = (Task*)malloc(sizeof(Task));
+    strcpy(task->name, name);
     task->priority = priority;
     task->condition = new;
     task->next = NULL;
@@ -31,7 +32,33 @@ Task* newTask(char * name, int priority){
 }
 
 void addTask(taskList* list, const char* name, int priority){
+    Task* newTask = newTask(name, priority);
+    if(list->head == NULL){
+        list->head = newTask;
+    } else{
+        Task* current = list->head;
+        Task* previous = NULL;
 
+        while(current != NULL && current -> priority <= priority){
+            previous = current;
+            current = current->next;
+        }
+        if(previous==NULL) {
+            newTask -> next = list -> head;
+            list -> head = newTask; 
+        }else{
+            previous -> next = newTask;
+            newTask -> next = current;
+        }
+    }
+    Task* current = list -> head;
+    int count = 1;
+    while (current != NULL)
+    {
+        current -> priority = count++;
+        current = current -> next;
+    }
+    
 }
 
 void changeCondition(taskList* list, int priority, Condition condition){
