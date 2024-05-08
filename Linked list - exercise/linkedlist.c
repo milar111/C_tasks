@@ -94,5 +94,12 @@ void deleteTask(taskList* list, int priority){
 
 
 void printList(taskList* list){
+    Task* current = list -> head;
+    while (current != NULL)
+    {
+        printf("Priority: %d, Name: %s, Condition: %d\n", current -> priority, current -> name, current -> condition);
+        current = current -> next;
+    }
+    
 
 }
