@@ -33,6 +33,7 @@ void addBook() {
     scanf("%s", book.isbn);
 
     Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->book = book;
     newNode->next = head;
     head = newNode;
 }
