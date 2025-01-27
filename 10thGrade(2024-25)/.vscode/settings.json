@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "typeinfo": "c",
+        "stdio.h": "c",
+        "type_traits": "c",
+        "tree.h": "c",
+        "string.h": "c",
+        "strings.h": "c"
+    }
+}

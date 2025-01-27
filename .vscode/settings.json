@@ -4,6 +4,11 @@
         "typeinfo": "c",
         "stdlib.h": "c",
         "header.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "tree.h": "c",
+        "node.h": "c",
+        "figure.h": "c",
+        "type_traits": "c",
+        "cmath": "c"
     }
 }
