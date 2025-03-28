@@ -1,9 +1,43 @@
-.exe
-.o
-.a
-.so
-.dll
-.lib
-.obj
-.pdb
-.s
+# Executable files
+*.exe
+*.out
+*.app
+
+# Catch2 folder
+OOP/catch2/
+
+# Build directories
+build/
+Debug/
+Release/
+x64/
+x86/
+
+# IDE specific files
+.vs/
+.vscode/
+*.user
+*.suo
+*.db
+*.opendb
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib 
