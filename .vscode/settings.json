@@ -9,6 +9,10 @@
         "node.h": "c",
         "figure.h": "c",
         "type_traits": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "vector": "cpp",
+        "stdexcept": "cpp",
+        "ostream": "cpp",
+        "cstring": "cpp"
     }
 }
