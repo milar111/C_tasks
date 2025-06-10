@@ -1,0 +1,11 @@
+Total number of people: 36
+
+Employees:
+Name: John Smith, Age: 28, Position: software_engineer, Experience: 5, Average Salary: 1952.5
+Name: Maria Garcia, Age: 25, Position: graphic_designer, Experience: 3, Average Salary: 1690.12
+Name: Alex Brown, Age: 30, Position: project_manager, Experience: 7, Average Salary: 2015
+
+Managers:
+Name: Sarah Johnson, Age: 35, Department: delivery
+Name: David Wilson, Age: 40, Department: marketing
+Name: Lisa Chen, Age: 38, Department: sales

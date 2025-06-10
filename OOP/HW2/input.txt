@@ -1,0 +1,12 @@
+e John Smith 28 software_engineer 5
+m Sarah Johnson 35 delivery John Smith 2200.00
+m Sarah Johnson 35 delivery John Smith 2300.00
+m Sarah Johnson 35 delivery John Smith 2400.00
+e Maria Garcia 25 graphic_designer 3
+m David Wilson 40 marketing Maria Garcia 1850.50
+m David Wilson 40 marketing Maria Garcia 1950.00
+m David Wilson 40 marketing Maria Garcia 2050.00
+e Alex Brown 30 project_manager 7
+m Lisa Chen 38 sales Alex Brown 2300.00
+m Lisa Chen 38 sales Alex Brown 2400.00
+m Lisa Chen 38 sales Alex Brown 2450.00
